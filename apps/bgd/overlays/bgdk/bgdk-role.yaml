@@ -1,0 +1,43 @@
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: bgdk-user
+  namespace: bgdk
+rules:
+  - verbs:
+      - get
+      - watch
+      - list
+      - create
+      - delete
+    apiGroups:
+      - ''
+    resources:
+      - pods
+      - events
+      - services
+      - configmaps
+      - secrets
+  - verbs:
+      - get
+      - watch
+      - list
+      - create
+      - delete
+    apiGroups:
+      - apps
+    resources:
+      - deployments
+      - daemonsets
+      - replicasets
+      - statefulsets
+  - verbs:
+      - get
+      - watch
+      - list
+      - create
+      - delete
+    apiGroups:
+      - route.openshift.io
+    resources:
+      - routes
